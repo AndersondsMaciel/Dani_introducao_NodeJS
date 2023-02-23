@@ -16,14 +16,14 @@
     }
     });
 
-/**
+ /**
  * POST => Inserir um dado
  * GET => Buscar um dado
  * PUT => Alterar um dado
  * DELETE => Remover um dado
  */
 
-/**
+ /**
  * Body => Sempre que eu quiser dados para minha aplicação
  * Params => /product/254566565656
  * Query => /product?id=25689632323&value685968965656
@@ -42,7 +42,7 @@
 
     products.push(product);
     
-    createProductFile();
+ //  createProductFile();
 
     /**fs.writeFile("products.json", JSON.stringify (products), (err) => {
         if (err) {
@@ -70,38 +70,38 @@
     const { id } = request.params;
     const { name, price } = request.body;
    
-const productIndex = products.findIndex(product => product.id === id);
-products[productIndex] = {
+ const productIndex = products.findIndex(product => product.id === id);
+ products[productIndex] = {
     ...products[productIndex],
     name,
     price,
-};
+ };
 
-productFile();
+ productFile();
 
-return response.json({ message: "Produto alterado com sucesso"});
-});
+ return response.json({ message: "Produto alterado com sucesso"});
+ });
 
-app.delete("/products/:id", (request, response) => {
-const { id } = request.params;
+ app.delete("/products/:id", (request, response) => {
+ const { id } = request.params;
 
-const productIndex = products.findIndex((product) => product.id === id);
+ const productIndex = products.findIndex((product) => product.id === id);
 
-products.splice(produtoIndex, 1);
+ products.splice(productIndex, 1);
 
-productFile();
+ productFile();
 
-return response.json({ message: "Produto removido com sucesso!"});
-});
+ return response.json({ message: "Produto deletado com sucesso!"});
+ });
 
-function productFile() {
+ function productFile() {
  fs.writeFile("products.json", JSON.stringify(products), (err) => {
         if (err) {
             console.log(err);
         } else {
             console.log("Produto inserido");
         }
-});
-}
+ });
+ }
 
     app.listen(4002, () => console.log("Servidor está rodando na porta 4002"));
