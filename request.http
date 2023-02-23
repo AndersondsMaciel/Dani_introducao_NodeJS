@@ -1,0 +1,25 @@
+POST http://localhost:4002/products
+content-type: application/json
+
+{
+    "name": "Lapis Azul",
+    
+    "price": 3.88
+}
+
+###
+ GET http://localhost:4002/products/f256f7fe-bf67-41e9-a28e-ac95911e80d1
+
+
+###
+ PUT http://localhost:4002/products/f256f7fe-bf67-41e9-a28e-ac95911e80d1
+ content-type: application/json
+
+ {
+    "name": "Caneta Vermelha",
+   
+    "price": 12.00
+ }
+
+###
+DELETE http://localhost:4002/products/f17ac94a-084f-4423-9ffa-fc88fe0306b8
